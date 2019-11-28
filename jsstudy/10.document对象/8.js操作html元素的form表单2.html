@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+        js操作多选框、单选框：
+            被选中状态在js中checked属性值为true，未选中状态为false
+
+        js操作下拉框：
+            被选中状态在js中checked属性值为true，未选中状态为false
+            
+
+
+
+    -->
+    
+    <script type="text/javascript">
+        // 多选框操作
+        function testCheckBox(){
+            // 获取所有的多选元素对象数组
+            var favs = document.getElementsByName("fav");
+            // 便利数组
+            for(var i=0;i<favs.length;i++){
+                if(favs[i].checked){
+                    alert(favs[i].value +":"+ favs[i].checked);
+                }
+            }
+        }
+
+        // 全选
+        function testCheckBox2(){
+            // 获取所有的多选元素对象数组
+            var favs = document.getElementsByName("fav");
+            // 便利数组
+            for(var i=0;i<favs.length;i++){
+                favs[i].checked = true;
+                }
+            }
+        
+        // 反选
+        function testCheckBox3(){
+            // 获取所有的多选元素对象数组
+            var favs = document.getElementsByName("fav");
+            // 便利数组
+            for(var i=0;i<favs.length;i++){
+                favs[i].checked = !favs[i].checked;
+                }
+            }
+
+        // 操作下拉框
+        function testSelect(){
+            // 获取下拉框对象
+            var sel = document.getElementById("address");
+            alert(sel.value);
+
+            // 获取options对象集合
+            var ops = sel.options;
+            for (var i=0;i<ops.length;i++){
+                if(ops[i].selected){
+                    alert(ops[i].value+":"+ops[i].text);
+                }
+            }
+        }
+    </script>
+    
+</head>
+<body>
+    <h3>js操作form表单</h3>
+    <hr>
+    <b>操作多选框</b><br><br>
+    <input type="checkbox" name="fav" id="fav" value="1">远走高飞<br>
+    <input type="checkbox" name="fav" id="fav" value="2">当<br>
+    <input type="checkbox" name="fav" id="fav" value="3">英雄<br>
+    <input type="checkbox" name="fav" id="fav" value="4">see you again<br>
+    <input type="button" value="测试操作CheckBox" onclick="testCheckBox()">
+    <input type="button" value="测试操作全选" onclick="testCheckBox2()">
+    <input type="button" value="测试操作反选" onclick="testCheckBox3()">
+    <hr>
+    <select name="" id="address" onchange="testSelect()">
+        <option value="0">--请选择--</option>
+        <option value="1">北京</option>
+        <option value="2">上海</option>
+        <option value="3">广州</option>
+    </select>
+
+
+    
+</body>
+</html>

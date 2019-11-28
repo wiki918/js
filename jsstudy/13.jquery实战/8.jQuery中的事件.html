@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" type="application/javascript" charset="UTF-8"></script>
+    <script type="text/javascript">
+        // js动态添加事件
+        function testThing(){
+            // 获取元素对象
+            var btn = document.getElementById("btn");
+            // 添加事件
+            btn.onclick = function(){
+                alert("我是js方式");
+            }
+        }
+
+        // jquery绑定事件：可以绑多个事件（相当于追加）
+        function testBind(){
+            $("#btn2").bind("click",function(){alert("我是bind绑定单击事件")});
+            $("#btn2").bind("click",function(){alert("我是bind绑定单击事件2")});
+        }
+
+    </script>
+</head>
+<body>
+    <h3>操作事件</h3>
+    <input type="button" id=""  name=""  value="测试js动态添加事件" onclick="testThing();"/>
+    <input type="button" id=""  name=""  value="测试jquery动态添加事件--bind" onclick="testBind();"/>
+
+    <hr>
+    <input type="button" id="btn" name="" value="测试js"/>
+    <input type="button" id="btn2" name="btn2" value="测试jquery-bind"/>
+
+
+</body>
+</html>

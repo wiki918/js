@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // //初始化一个数字数组，然后输出数组中的所有奇数
+        // var arr = [13,25,26];
+        // for(var index in arr){
+        //     if(arr[index]%2 !==0){
+        //         console.log(arr[index]);
+        //     }
+        // }
+
+        //初始化一个数字数组，然后输出数组中的所有质数
+        var arr = [13,25,26];
+        for(var index in arr){
+            //判断arr[index]是不是质数
+            var isFind = false;
+            for (var i =2;i<arr[index]-1;i++){
+                if(arr[index]%i ===0){
+                    isFind = true;
+                    break;
+                }
+            }
+            if (!isFind && arr[index]>=2){
+                console.log(arr[index]);
+            }
+        }
+    </script>
+</body>
+</html>

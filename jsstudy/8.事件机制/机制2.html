@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>机制2</title>
+    <!--
+        1、给合适的HTML标签添加合适的事件
+            onchange事件：适合select下拉框
+            onload事件：适合body标签
+            单双击事件：用户会进行点击动作的html元素(如：适合按钮、图片点击)
+            鼠标事件：用户进行鼠标移动操作的 
+            键盘事件：用户进行键盘操作的HTML元素
+        2、给html元素添加多事件时，注意事件之间的冲突
+            举个例子：单双击
+            当事件的触发条件包含相同部分的时候，会产生事件之间的冲突
+
+        3、事件的阻断
+            当事件所监听函数的将返回值给事件时：
+                false：则会阻断当前事件所在的html标签的功能
+                true：则会继续执行当前事件所在的html标签的功能
+        4、超链接调用js函数
+            <a href="javascript:函数名()">调用js函数</a>
+
+
+    -->
+
+    <script type="text/javascript">
+        // 值改变事件
+        function testChange(){
+            alert("我改变了");
+        }
+
+        // 单击事件
+        function testOnclick(){
+            alert("今天天气好！");
+        }
+        // 双击事件
+        function testOndbclick(){
+            alert("老师说得对");
+        }
+
+        // 事件的阻断:表单在验证时，当有一个不对时，就不提交
+        function testA(){
+            alert("事件的阻断");
+            return true;  //true or false
+        }
+
+        // 超链接调用js函数
+        function testHref(){
+            alert("我是超链接调用js函数");
+        }
+    </script>
+</head>
+<body>
+    <h3>js事件2</h3>
+    <hr>
+    值改变事件:<input type="text" name="" id="" value="" onchange="testChange()" />
+    <select name="" id="" onchange="testChange()">
+        <option value="">北京</option>
+        <option value="">上海</option>
+        <option value="">天津</option>
+    </select>
+    <hr>
+    事件的冲突：<br>
+        <input type="button" value="点我" onclick="testOnclick()" ondblclick="testOndbclick()">
+
+
+    <hr>
+    事件的阻断：<br>
+        <a href="http://www.baidu.com" target="_blank" onclick="return testA()">百度一下</a>
+
+    <hr>
+    超链接调用js函数：
+        <a href="javascript:testHref()">调用js函数</a>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+        BOM浏览器对象模型：是规范浏览器对js语言的支持(js调用浏览器本身的功能)
+        BOM的具体实现是Windows对象
+
+        Windows对象使用学习：
+            1、Windows对象不用new，直接进行使用即可，类似math的使用方式
+            2、框体方法
+                alert：提示一个警告信息，没有返回值
+                confirm：确认/取消框，有返回值(true/false)
+                prompt:提示用户某个信息的输入和收集，有返回值(确定：返回用户输入的值/默认空字符串；取消：返回null)
+            3、定时和间隔执行方法
+                setTimeout：指定的时间后执行指定的函数
+                    参数1：函数对象
+                    参数2：时间，餐位毫秒
+                    返回值：返回当前定时器的id
+                setInterval:每间隔指定时间后执行指定的函数
+                    参数1：函数对象
+                    参数2：时间，餐位毫秒
+                    返回值：返回当前定时间隔的id
+                clearTimeout：用来停止指定的定时器
+                    参数：定时器的id
+                clearInterval：用来停止指定的间隔
+                    参数：定时间隔的id
+
+            4、子窗口方法
+                见下一章
+
+
+    -->
+
+    <!--声明js代码区 -->
+    <script type="text/javascript">
+        // 框体方法学习
+        //警告框
+        function testAlert(){
+            window.alert("我是警告框");
+        }
+        // 确认框
+        function testConfirm(){
+            window.confirm("你确认要删除吗？");
+        }
+        // 提示框
+        function testPrompt(){
+            window.prompt("你输入昵称：");
+        }
+
+        /*------------------*/
+        var id;
+        var ids;
+        // 定时执行
+        function testSetTimeout(){
+            id = window.setTimeout(function(){
+                alert("我是定时执行");
+            },3000)
+        }
+        // 停止当前的定时方法
+        function testClearSetTimeout(){
+            window.clearTimeout(id);
+        }
+        //间隔执行
+        function testSetInterval(){
+            ids = window.setInterval(function(){
+                alert("我是间隔执行");
+            },3000)
+        }
+        // 停止当前的间隔执行
+        function testClearInterval(){
+            window.clearInterval(ids);
+        }
+
+    </script>
+</head>
+<body>
+    <h3>windows对象学习</h3>
+    <hr>
+    <input type="button" value="测试警告框" onclick="testAlert();">
+    <input type="button" value="测试确认框" onclick="testConfirm();">
+    <input type="button" value="测试提示框" onclick="testPrompt();">
+    <hr>
+    <input type="button" value="测试setTimeout--定时执行" onclick="testSetTimeout();">
+    <input type="button" value="测试setinterval--间隔执行" onclick="testSetInterval();">
+    <input type="button" value="测试clearTimeout--停止指定的定时器" onclick="testClearSetTimeout();">
+    <input type="button" value="测试clearTimeout--停止指定的间隔器" onclick="testClearInterval();">
+
+
+
+</body>
+</html>

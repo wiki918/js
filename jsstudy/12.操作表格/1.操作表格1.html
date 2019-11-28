@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+        js操作表格学习：
+            1、删除行：
+                行对象.rowIndex  //返回行对象的角标
+                表格对象.deleteRow(tr.rowIndex); 
+
+
+     -->
+
+    <!-- 声明css -->
+    <style type="text/css">
+        /* body */
+        body{
+            text-align: center;
+        }
+        /* 设置表格居中 */
+        #ta{
+            margin: auto;
+        }
+        /* 设置表格的行样式 */
+        #ta tr{
+            height: 35px;
+        }
+    </style>
+
+    <!-- 声明js代码域 -->
+    <script type="text/javascript">
+        // 删除每行
+        function delRow(btn){
+            // 获取table对象
+            var ta = document.getElementById("ta");
+            // 获取要删除的行对象
+            var tr = btn.parentNode.parentNode;
+            // 删除行（删除的是行号）
+            ta.deleteRow(tr.rowIndex);
+        }
+
+        // 修改功能
+        function updateRow(btn){
+            // 获取要修改的单元格对象
+            // 获取行对象
+            var tr = btn.parentNode.parentNode;
+            var cell = tr.cells[3];  //td在这个tr的第三个元素
+            // var cell =document.getElementById("cell");写死的不合理
+            // 判断cell.innerHTML的值是否是数字
+            if(!isNaN(Number(cell.innerHTML))){
+                // 修改单元格的内容
+                cell.innerHTML = "<input type='text' value='"+cell.innerHTML+"' onblur='updateRow2(this)'/>"
+            }      
+        }
+        // 输入框失去焦点
+        function updateRow2(inp){
+            // 获取要修改的单元格对象
+            var cell =inp.parentNode;
+            // 实现保存
+            cell.innerHTML = inp.value;
+        }
+    </script>
+</head>
+<body>
+    <h3 align="center">操作表格</h3>
+    <input type="button" name="" id="" value="删除">
+    <input type="button" name="" id="" value="添加一行">
+    <input type="button" name="" id="" value="复制一行">
+    <hr>
+        <table border="1px" id="ta">
+            <tr style="text-align: center;font-weight:bold;">
+                <td width="200px">书名</td>
+                <td width="100px">作者</td>
+                <td width="100px">价格</td>
+                <td width="100px">购买数量</td>
+                <td width="200px">操作</td>
+            </tr>
+            <tr id="t1">
+                <td>java从入门到放弃</td>
+                <td>wollo</td>
+                <td>43.50</td>
+                <td id="cell">6</td>
+                <td align="center">
+                    <input type="button" value="修改数量" onclick="updateRow(this);">
+                    <input type="button" value="删除" onclick="delRow(this);">
+                </td>
+            </tr>
+            <tr>
+                <td>JavaScript</td>
+                <td>高琪</td>
+                <td>77.79</td>
+                <td>2</td>
+                <td align="center">
+                    <input type="button" value="修改数量" onclick="updateRow(this);">
+                    <input type="button" value="删除" onclick="delRow(this);">
+                </td>
+            </tr>
+            <tr>
+                <td>python入门</td>
+                <td>wiki</td>
+                <td>99.25</td>
+                <td>4</td>
+                <td align="center">
+                    <input type="button" value="修改数量" onclick="updateRow(this);">
+                    <input type="button" value="删除" onclick="delRow(this);">
+                </td>
+            </tr>
+        </table>
+</body>
+</html>

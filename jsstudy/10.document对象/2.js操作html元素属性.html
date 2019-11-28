@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+        js操作html元素属性学习
+            获取元素对象
+            操作元素属性
+                获取：元素对象名.属性名   返回当前属性的属性值----固有
+                     元素对象名.getAttribute("属性名")   返回自定义属性的值----自定义
+                修改：元素对象名.属性名=属性值
+                     元素对象名.setAttribute("属性名","属性值")  修改自定义属性的值----自定义
+                注意：尽量不要去修改id、name属性值
+
+    -->
+    <script type="text/javascript">
+        // 获取属性值
+        function testField(){
+            // 获取元素对象
+            var inp = document.getElementById("uid");
+            // 获取元素属性值
+            alert(inp.type+":"+inp.name+":"+inp.id+":"+inp.value);
+        }
+
+        // 修改元素属性值
+        function testField2(){
+            // 获取元素对象
+            var inp = document.getElementById("uid");
+            // 修改元素属性值
+            inp.type = "button";
+            inp.value = "哈哈";
+        }
+
+        // 声明函数-自定义属性
+            // 获取
+            function testOwnField(){
+                // 获取元素对象
+                var inp = document.getElementById("uid");
+                // 获取自定义属性值
+                alert(inp.getAttribute("abc"));
+            }
+            // 修改
+            function testOwnField2(){
+                // 获取元素对象
+                var inp = document.getElementById("uid");
+                // 修改自定义属性值
+                alert(inp.setAttribute("abc","呵呵"));
+            }
+        
+        // 使用自定义方式操作固有属性
+            function testOper(){
+                    // 获取元素对象
+                    var inp = document.getElementById("uid");
+                    // 操作属性
+                    alert(inp.getAttribute("type"));
+                }
+    </script>
+</head>
+<body>
+    <h3>js操作html元素属性</h3>
+    <input type="button" value="测试获取元素属性" onclick="testField();">
+    <input type="button" value="测试修改元素属性" onclick="testField2();">
+    <input type="button" value="测试获取自定义元素属性" onclick="testOwnField();">
+    <input type="button" value="测试修改自定义元素属性" onclick="testOwnField2();">
+
+
+    <hr>
+    用户名：<input type="text" name="uname" id="uid" value="" abc="嘿嘿">
+</body>
+</html>

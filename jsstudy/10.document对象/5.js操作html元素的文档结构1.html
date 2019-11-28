@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+        操作元素文档结构学习：
+            增加节点
+            删除节点
+
+            第一种方式：使用innerHTML
+                div.innerHTML = div.innerHTML+'内容'  //增加节点
+                div.innerHTML ='' //删除所有子节点
+                父节点.removeChild(子节点对象)  //删除指定的子节点
+
+
+
+
+    -->
+    
+    <script type="text/javascript">
+                function testAdd(){
+                    // 获取元素对象
+                    var showdiv = document.getElementById("showdiv");
+                    //给div增加上传按钮
+                    showdiv.innerHTML = showdiv.innerHTML + "<div><input type='file' value='' /><input type='button' value='删除' onclick='delInp(this)'/></div>"
+
+                }
+                function delInp(btn){
+                    // 获取父级div
+                    var showdiv = document.getElementById("showdiv");
+                    // 获取要删除的子div
+                    var cdiv = btn.parentNode;
+                    // 父div删除子div
+                    showdiv.removeChild(cdiv); 
+
+                }
+
+
+
+            
+            
+            
+
+    </script>
+</head>
+<body>
+    <h3>js操作元素的文档结构</h3>
+    <input type="button" value="继续上传" id="" name="" onclick="testAdd();">
+
+    <div id="showdiv">
+
+    </div>
+</body>
+</html>

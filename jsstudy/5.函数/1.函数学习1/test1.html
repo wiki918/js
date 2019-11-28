@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1声明js代码
+        // 方式一：
+        function test1(){
+            alert("函数声明一");
+        }
+
+        // 方式二：
+        var a1 ='qqwe';
+        var test2 = new Function(a1,'a2',"alert('函数声明二'+a1+a2)");
+
+        // 方式三：
+        var test3 = function(a1,a2){
+            alert("我是函数声明三");
+        }
+
+        // 调用声明的函数
+        test2(1,2);
+
+        // 函数的参数
+        function testParam(a1,a2){
+            alert("函数的形参学习");
+        }
+        testParam(23,24);
+
+
+        //函数的返回值
+        var testReturn = function(){
+            alert("函数返回值");
+            return "js";
+        }
+        alert(testReturn());
+
+    </script>
+</body>
+</html>

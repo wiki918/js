@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 1类的声明
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            this.test = function(a){
+                alert(a);
+            }
+        }
+
+        function User(uname,pwd){
+            this.uname = uname;
+            this.pwd = pwd;
+
+        }
+
+        //2类的继承：使用prototype:这是类拥有的
+            Person.prototype.test = function(){
+                alert("嘿嘿");
+            }
+            Person.prototype = new User();
+            User.prototype.testU = function(){
+                alert("我是user");
+            }
+
+        // 3使用类
+            var p1 = new Person("张三",32);
+            var p2 = new Person("李四",34);
+
+            alert(p1.name);
+            alert(p1.test(12));
+            alert(p1.test === p2.test);
+            p1.testU();
+
+
+        
+    </script>
+</body>
+</html>

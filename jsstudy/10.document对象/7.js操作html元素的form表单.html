@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+        js操作form：
+            获取form表单对象
+                使用id：var fm = document.getElementById("fm");
+                使用name：var frm = document.frm;
+
+
+
+    -->
+    <script type="text/javascript">
+        function testForm(){
+            // 获取form表单对象
+            var fm = document.getElementById("fm");
+            alert(fm);
+
+            // 使用form表单的name属性值获取
+            var frm = document.frm;
+            
+            // 获取form下所有表单对象集合
+            alert(fm.elements.length);
+
+            // form表单的常用方法
+            fm.submit();//很重要，提交表单
+            fm.reset();
+
+            // form的属性操作
+            fm.action = "http://www.baidu.com";
+            fm.method = "post"
+
+        }
+        
+    </script>
+    
+</head>
+<body>
+    <h3>js操作form表单</h3>
+    <input type="button" value="测试操作form" onclick="testForm()">
+    <hr>
+    <form action="#" method="get" id="fm" name="frm">
+        用户名：<input type="text" name="uname" id="uid" value=""/> </br></br>
+        密码：<input type="password" name="pwd" id="pwd" value=""><br><br>
+        <input type="submit" value="登录" name="" id="">
+
+    </form>
+</body>
+</html>

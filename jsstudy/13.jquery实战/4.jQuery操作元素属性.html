@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 
+        jquery操作元素属性
+            获取：
+                对象名.attr("属性名")  //返回当前属性值
+                    注意此种方式不能获取value属性的实时数据，使用对象名.val()进行获取
+            修改:
+                对象名.attr("属性名","属性值")
+
+     -->
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" type="application/javascript" charset="UTF-8"></script>
+    <script type="text/javascript">
+        
+        function testFiled(){
+            var uid  = $("#uid");
+            alert(uid.attr("type")+":"+uid.attr("value")+":"+uid.val());
+
+        }
+
+        function testFields2(){
+            var uid  = $("#uid");
+            uid.attr("type","button");
+        }
+
+
+    </script>
+</head>
+<body>
+    <h3>jquery操作元素属性</h3>
+    <input type="button" value="获取元素属性" onclick="testFiled();">
+    <input type="button" value="修改元素属性" onclick="testFields2();">
+
+    <hr>
+    用户名：<input type="text" name="" id="uid" value="" />
+</body>
+</html>

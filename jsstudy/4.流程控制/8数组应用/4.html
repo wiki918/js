@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var users =[
+            {loginId:"abs",loginPwd:'123'},
+            {loginId:"abs1",loginPwd:'1231'},
+            {loginId:"abs2",loginPwd:'1232'},
+            {loginId:"abs3",loginPwd:'1233'},
+        ];
+
+        //让用户输入账号和密码
+        var loginId_inp = prompt(输入账号);
+        var loginPwd_inp = prompt(输入密码);
+
+        // 查找问题
+        var isFind = false;
+        for (var i =0;i<users.length;i++){
+            var u =users[i];
+            if (u.loginId_inp == loginId && u.loginPwd_inp == loginPwd){
+                isFind = true;
+                break;
+            }
+
+        }
+        if(isFind){
+            console.log("登录成功");
+        }else{
+            console.log("登录失败");
+        }
+
+
+    </script>
+</body>
+</html>

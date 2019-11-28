@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //1函数的执行符
+        var test1 = function(){
+            alert("函数的执行符学习！");
+            return "js";
+        }
+        // alert(test1());
+
+        // 2函数作为实参进行传递
+        function testobj(a){
+            alert(a());
+        }
+        var test2 = function(){
+            alert("我是函数参数");
+        }
+        testobj(test2);
+
+        // 3开发中经常用的传递方式
+        function test3(fn){
+            alert(fn());
+        }
+        test3(function(){
+            alert("开发");
+        })
+
+    </script>
+</head>
+<body>
+    <h3>js学习</h3>
+</body>
+</html>

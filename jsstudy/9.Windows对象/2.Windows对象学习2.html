@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+        BOM浏览器对象模型：是规范浏览器对js语言的支持(js调用浏览器本身的功能)
+        BOM的具体实现是Windows对象
+
+        Windows对象使用学习：          
+            1、子窗口方法
+                window.open('子页面的资源(相对路径)','打开方式','配置'')
+                注意：关闭子页面的方法Windows.close(),但是此方法只能关闭open方法打开的子页面
+            2、子页面调用父页面的函数
+                Windows.opener.父页面的函数()
+        js的Windows对象的常用属性
+            1、地址栏属性：location
+                window.location.href = 'http://www.baidu.com';
+                window.location.reload();
+
+            2、历史记录属性
+                window.history.forward()：页面资源前进，历史记录的前进
+                window.history.back():页面资源后退，历史记录的后退
+                window.history.go(index):跳转到指定的历史记录资源
+
+            3、屏幕属性
+                window.screen.width;
+                window.screen.height;
+            4、浏览器配置属性
+                window.navigator.userAgent
+            5、主体面板属性(ducument)
+
+
+    -->
+
+    <!--声明js代码区 -->
+    <script type="text/javascript">
+        // 1子页面方法
+        function testOpen(){
+            window.open('son.html','newwindow','height=100,width=300,top=0,left=0,toolbar=yes,menubar=yes,scrollbars=yes,resizable=yes,location=yes,status=yes');
+        }
+
+        // 2子页面调用父页面的函数
+        function testFather(){
+            alert("父页面");
+        }
+        /*----*/
+        // 1地址栏属性
+        function testLocation(){
+            window.location.href = 'http://www.baidu.com';
+        }
+        function testLocation2(){
+            window.location.reload();
+        }
+
+        // 历史记录
+        function testHistory(){
+            window.history.forward();
+            window.history.back();
+        }
+
+        // 屏幕属性学习
+        function testScreen(){
+            var x = window.screen.width;
+            var y = window.screen.height;
+            alert(x+""+y);
+        }
+
+        // 浏览器配置属性
+        function testNa(){
+            alert(window.navigator.userAgent);
+        }
+
+    </script>
+</head>
+<body>
+    <h3>windows对象学习2</h3>
+    <hr>
+    <input type="button" value="测试open" onclick="testOpen();">
+    <hr>
+    <input type="button" value="测试地址栏属性-location跳转资源" onclick="testLocation();">
+    <input type="button" value="测试地址栏属性-location重新加载资源" onclick="testLocation2();">
+    <input type="button" value="测试历史记录属性-history-前进" onclick="testHistory();">
+    <hr>
+    <input type="button" value="测试屏幕属性-screen" onclick="testScreen();">
+
+
+
+
+    
+
+
+
+</body>
+</html>

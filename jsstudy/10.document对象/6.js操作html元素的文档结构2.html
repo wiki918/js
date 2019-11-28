@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+        操作元素文档结构学习：
+            增加节点
+            删除节点
+
+            第一种方式：使用innerHTML
+                div.innerHTML = div.innerHTML+'内容'  //增加节点
+                div.innerHTML ='' //删除所有子节点
+                父节点.removeChild(子节点对象)  //删除指定的子节点
+
+            第二种方式：使用createElement
+                var obj = document.createElement('标签名');
+                元素对象名.appendChild(obj)
+
+
+
+
+    -->
+    
+    <script type="text/javascript">
+                function testOper2(){
+                    // 获取元素对象
+                    var showdiv = document.getElementById("showdiv");
+                    
+                    // 创建input元素对象
+                    var ipt = document.createElement('input');
+                    ipt.type = 'file';
+                    // 创建按钮对象
+                    var btn = document.createElement('input');
+                    btn.type = 'button';
+                    btn.value = '删除';
+                    btn.onclick = function(){
+                        showdiv.removeChild(ipt);
+                        showdiv.removeChild(btn);
+                        showdiv.removeChild(br);
+                    }
+                    // 创建换行符
+                    var br = document.createElement('br');
+
+                    // 将创建的元素对象放到div中
+                    showdiv.appendChild(ipt);
+                    showdiv.appendChild(btn);
+                    showdiv.appendChild(br);
+                }
+
+    </script>
+</head>
+<body>
+    <h3>js操作元素的文档结构</h3>
+    <input type="button" value="继续上传" id="" name="" onclick="testOper2();">
+
+    <div id="showdiv">
+
+    </div>
+</body>
+</html>

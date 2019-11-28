@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+        
+        发送验证码： 四位
+            Math.floor(Math.random()*9000+1000);
+        用户名：
+            正则：/^[\u4e00-\u9fa5]{2,4}$/
+        密码：
+            正则：/^[a-z]\w{5,7}$/
+
+
+
+
+    -->
+    <script type="text/javascript">
+        // 生成验证码
+            function createcode(){
+                // 创建随机四位数字
+                var code = Math.floor(Math.random()*9000+1000);
+                // alert(code);
+                // 获取元素对象
+                var span = document.getElementById("codespan");
+                // 将数字存放到span中
+                span.innerHTML = code;
+            }
+        // 验证用户名
+            function checkUname(){
+                // 获取用户的用户名信息
+                var uname = document.getElementById("uname").value;
+                // 创建规则
+                var reg = /^[\u4e00-\u9fa5]{2,4}$/
+                // 获取span对象
+                var span = document.getElementById("unamespan");
+                // 开始校验
+                if(uname == "" || uname == null){
+                    span.innerHTML = "用户名不能为空"
+                    span.style.color = "red";
+                }else if(reg.test(uname)){
+                    span.innerHTML = "用户名ok"
+                    span.style.color = "green";
+                }else{
+                    span.innerHTML = "用户名不符合规则"
+                    span.style.color = "red";
+                }
+                // 输出校验结果
+            }
+
+            // 验证输入框的封装
+            function checkField(id,reg){
+                // 获取用户数据
+                var inp = document.getElementById(id);
+                va =inp.value;
+                alt = inp.alt;
+                // 创建校验规则
+                // 获取span对象
+                var span = document.getElementById(id+"Span")
+                // 开始校验 
+                if(va =="" || va ==null){
+                    //输出校验结果
+                    span.innerHTML = alt+'不能为空'
+                    span.style.color = "red";
+                }else if(reg.test(va)){
+                    span.innerHTML = alt+'ok'
+                    span.style.color = "green";
+                }else{
+                    span.innerHTML = alt+'不符合规则'
+
+                }
+            }
+            // 校验是否同意协议
+            function checkAgree(){
+                document.getElementById("sub").disabled = !document.getElementById("agree").checked;
+            }
+
+            // 提交判断
+            function checkSub(){
+                return false;
+            }
+
+
+
+
+        
+    </script>
+    
+</head>
+<body onload="createcode()">
+    <div>
+        <h3>js操作form表单</h3>
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td>
+                    <input type="text" name="uname" id="uname" value="" style="width: 100px;"/ onblur="checkUname()" alt="用户名">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="unamespan";" style="background-image:url(imgs/codes.png);"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>验证码：</td>
+                <td>
+                    <input type="text" name="code" id="code" value="" style="width: 100px;"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="codespan" onclick="createcode();" style="background-image:url(imgs/codes.png);"></span>
+                </td>
+            </tr>  
+            <tr>
+                <td colspan="2" align="center"><input type="checkbox" name="" id="agree" value="" onclick="checkAgree()">是否同意本公司协议</td>
+            </tr> 
+            <tr>
+                <td colspan="2" align="center"><input type="submit" id="sub" value="立即注册" disabled="disabled"></td>
+            </tr>
+        </table>
+        <input type="button" value="测试操作form" onclick="createcode()">
+        <hr>
+    </div>
+    
+    
+</body>
+</html>

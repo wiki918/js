@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+     
+
+    -->
+    <style type="text/css">
+        #showdiv{
+            width: 200px;
+            height: 200px;
+            border: solid 1px orange;
+        }
+        .common{
+            width: 200px;
+            height: 200px;
+            border: solid 1px;
+        }
+    </style>
+    <script type="text/javascript">
+        // js操作元素样式
+            // js给元素添加样式
+                function getOpercss(){
+                    // 获取元素对象
+                    var showdiv = document.getElementById("showdiv");
+                    //添加元素样式
+                    showdiv.style.backgroundColor = "#FFA500";
+                    // js修改样式
+                    showdiv.style.border = "solid 2px red";
+                    // js删除样式
+                    showdiv.style.border = "";
+
+                }
+
+            // js操作样式-className
+            function testOperCss2(){
+                // 获取元素对象
+                var div01 = document.getElementById("div01");
+                //获取
+                alert(div01.className);
+
+            }
+
+            
+            
+            
+
+    </script>
+</head>
+<body>
+    <h3>js操作元素的样式</h3>
+    <input type="button" value="添加样式--style" id="" name="" onclick="getOpercss();">
+    <input type="button" value="修改元素内容--innerHTML" id="" name="" onclick="updateContext();">
+
+    <div id="showdiv">
+        黄军，前面有八路的干活。
+        <b>黄军，前面有八路的干活。</b>
+    </div>
+    <div id="div01" class="common">
+
+    </div>
+</body>
+</html>

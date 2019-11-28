@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+        操作元素内容学习：
+            获取元素对象：
+                获取
+                    元素对象名.innerHTML //返回当前对象的所有内容，包括html标签
+                    元素对象名.innerText //返回当前对象的所有内容，不包括html标签
+                修改
+                    元素对象名.innerHTML="新的值" //会将原有的内容覆盖，并html标签会被解析
+                    元素对象名.innerText="新的值" //会将原有的内容覆盖，但html标签不会被解析作为普通文本显示
+
+
+
+
+    -->
+    <style type="text/css">
+        #div01{
+            width: 200px;
+            height: 200px;
+            border: solid 1px orange;
+        }
+    </style>
+    <script type="text/javascript">
+        // 获取元素内容
+            function getContext(){
+                // 获取元素对象
+                var div = document.getElementById("div01");
+                //获取元素内容
+                alert(div.innerHTML);
+                alert(div.innerText);
+            }
+        //修改元素内容
+            function updateContext(){
+                    // 获取元素对象
+                    var div = document.getElementById("div01");
+                    //修改元素内容
+                    alert(div.innerHTML = "<b>你先上，黄军给你殿后，八嘎！</b>");
+                    alert(div.innerText = "<b>你先上，黄军给你殿后，八嘎！</b>");
+                }
+    </script>
+</head>
+<body>
+    <h3>js操作元素的内容和样式</h3>
+    <input type="button" value="获取元素内容--innerHTML&innerText" id="" name="" onclick="getContext();">
+    <input type="button" value="修改元素内容--innerHTML" id="" name="" onclick="updateContext();">
+
+    <div id="div01">
+        黄军，前面有八路的干活。
+        <b>黄军，前面有八路的干活。</b>
+    </div>
+</body>
+</html>
